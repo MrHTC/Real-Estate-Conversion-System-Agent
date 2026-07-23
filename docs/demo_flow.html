@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PropertyVala Demo Flow</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+    padding: 40px;
+    color: #fff;
+  }
+  .container { max-width: 1000px; margin: 0 auto; }
+  h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .subtitle {
+    text-align: center;
+    color: #9ca3af;
+    margin-bottom: 50px;
+  }
+  .terminal {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 30px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+  }
+  .terminal-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+  .terminal-dot.red { background: #ff5f56; }
+  .terminal-dot.yellow { background: #ffbd2e; }
+  .terminal-dot.green { background: #27c93f; }
+  .terminal-title {
+    margin-left: 12px;
+    color: #9ca3af;
+    font-size: 0.85em;
+  }
+  .terminal-body {
+    color: #c9d1d9;
+    font-size: 0.9em;
+    line-height: 1.6;
+  }
+  .terminal-body .prompt { color: #6366f1; }
+  .terminal-body .command { color: #fff; }
+  .terminal-body .output { color: #8b949e; }
+  .terminal-body .success { color: #27c93f; }
+  .terminal-body .highlight { color: #f0883e; }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+  }
+  .feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .feature-icon {
+    font-size: 1.8em;
+    flex-shrink: 0;
+  }
+  .feature-content h3 {
+    font-size: 1.1em;
+    margin-bottom: 6px;
+    color: #fff;
+  }
+  .feature-content p {
+    font-size: 0.85em;
+    color: #9ca3af;
+    line-height: 1.5;
+  }
+  @media (max-width: 768px) {
+    .features { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>PropertyVala Demo</h1>
+  <p class="subtitle">See the system in action — from lead sourcing to commission tracking</p>
+
+  <div class="terminal">
+    <div class="terminal-header">
+      <div class="terminal-dot red"></div>
+      <div class="terminal-dot yellow"></div>
+      <div class="terminal-dot green"></div>
+      <div class="terminal-title">Terminal — PropertyVala CLI</div>
+    </div>
+    <div class="terminal-body">
+      <div><span class="prompt">$</span> <span class="command">python run.py cycle real_estate Delhi</span></div>
+      <div class="output">───────────────────────────────────────────</div>
+      <div class="success">[LEAD]</div>
+      <div class="output">  Source: CSV → delhi_ncr_real_estate_leads.csv</div>
+      <div class="output">  Fetched: <span class="highlight">300</span> buyer-intent leads</div>
+      <div class="output">  Locations: Sector 62 Noida, Saket, Dwarka, Rohini...</div>
+      <div class="output">  Property types: Residential Plot, Builder Floor, Agricultural Land</div>
+      <div class="success">[QUALIFY]</div>
+      <div class="output">  Scoring 300 leads with 6-factor AI model...</div>
+      <div class="output">  HOT (≥85): <span class="highlight">100</span> | WARM (60-84): <span class="highlight">167</span> | COLD (<60): <span class="highlight">33</span></div>
+      <div class="output">  Avg score: <span class="highlight">72.4</span>/100</div>
+      <div class="success">[OUTREACH]</div>
+      <div class="output">  Top 50 leads selected for WhatsApp outreach</div>
+      <div class="output">  Templates: Delhi NCR specific (residential land focus)</div>
+      <div class="output">  Status: <span class="highlight">Drafts ready</span> — real_estate_dms.json</div>
+      <div class="success">[COMMISSION]</div>
+      <div class="output">  Platform cut: 10% | Source partner: 3%</div>
+      <div class="output">  Late fee: 2%/week after 15-day grace</div>
+      <div class="output">  Suspension: 60 days overdue</div>
+      <div class="success">[DONE]</div>
+      <div class="output">  Leads: 300 | Scored: 300 | Outreach: 50 | Commissions: tracked</div>
+      <div class="output">───────────────────────────────────────────</div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <div class="feature-content">
+        <h3>Buyer Intent Scoring</h3>
+        <p>Every lead is scored 0-100 across contact quality, budget, timeline, property specificity, and digital presence — no more gut-feeling.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💬</div>
+      <div class="feature-content">
+        <h3>WhatsApp Automation</h3>
+        <p>Personalized outreach templates for real estate agencies. Send DMs to top 50 leads in minutes, not hours.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <div class="feature-content">
+        <h3>Analytics & Optimization</h3>
+        <p>Track conversion rates, lead quality trends, and source performance. AI suggests improvements based on metrics.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔄</div>
+      <div class="feature-content">
+        <h3>Referral Routing</h3>
+        <p>Model Y routing: receiving agency pays platform fee for qualified buyer leads. Automatic commission splits on every deal.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <div class="feature-content">
+        <h3>Enforced Collections</h3>
+        <p>Net 15 invoicing, 2%/week late fees, and 60-day service suspension for overdue agencies. No more payment chasing.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📱</div>
+      <div class="feature-content">
+        <h3>Mobile CRM API</h3>
+        <p>REST API for lead management, swipe-based status updates, appointment scheduling, and real-time agent sync.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
