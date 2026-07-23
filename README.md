@@ -1,9 +1,8 @@
 # propertyvala-conversion-agent
 
-Single-agent repo for agentic lead engine.
+Conversion flows, pricing engine, deal routing.
 
 ## Install
+```bash
 pip install -e .
-
-## Usage
-python run.py
+```
