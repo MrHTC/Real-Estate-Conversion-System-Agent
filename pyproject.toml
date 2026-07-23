@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "propertyvala-conversion-agent"
+version = "0.1.0"
+description = "conversion agent"
+requires-python = ">=3.9"
+dependencies = [
+    "python-dotenv>=1.0",
+    "schedule>=1.2",
+    "requests>=2.31",
+    "urllib3>=2.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agentic_lead_engine*"]
